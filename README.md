@@ -38,7 +38,7 @@ A lightweight, educational operating system built from scratch featuring a monol
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ojas-mohbansi/my-own-os
    cd my-own-os
    ```
 
