@@ -1,0 +1,54 @@
+S00K OS Verification Test Matrix
+================================
+
+1. Boot Testing Matrix:
+   - BIOS Legacy boot: REQUIRED
+   - UEFI boot: REQUIRED
+   - Secure Boot: OPTIONAL
+   - USB boot: REQUIRED
+   - CD/DVD boot: REQUIRED
+   - Network boot: FUTURE
+
+2. Virtual Environment Testing:
+   - VirtualBox: REQUIRED
+   - VMware: REQUIRED
+   - QEMU: REQUIRED
+   - Hyper-V: OPTIONAL
+   - Parallels: OPTIONAL
+
+3. Hardware Testing Matrix:
+   - Intel processors: REQUIRED
+   - AMD processors: REQUIRED
+   - 32-bit systems: REQUIRED
+   - 64-bit systems: REQUIRED
+   - Multi-core systems: REQUIRED
+   - Single-core systems: OPTIONAL
+
+4. Memory Testing:
+   - 512MB minimum: REQUIRED
+   - 1GB standard: REQUIRED
+   - 4GB+ systems: REQUIRED
+   - ECC memory: OPTIONAL
+
+5. Storage Testing:
+   - IDE controllers: REQUIRED
+   - SATA controllers: REQUIRED
+   - NVMe SSDs: REQUIRED
+   - USB storage: REQUIRED
+   - SCSI controllers: OPTIONAL
+
+6. Graphics Testing:
+   - VGA compatibility: REQUIRED
+   - VESA modes: REQUIRED
+   - Intel graphics: REQUIRED
+   - AMD graphics: REQUIRED
+   - NVIDIA graphics: REQUIRED
+
+7. Network Testing:
+   - Intel adapters: REQUIRED
+   - Realtek adapters: REQUIRED
+   - Broadcom adapters: REQUIRED
+   - Wireless adapters: OPTIONAL
+
+Test Status: READY FOR TESTING
+Last Updated: Tue 18/11/2025  9:26:41.65

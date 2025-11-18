@@ -1,0 +1,33 @@
+S00K OS Build Information
+========================
+Version: 1.0
+Build Date: Tue 18/11/2025  9:25:04.08
+Build Host: S00K
+Build User: styli
+ISO Label: S00K_OS_1.0
+Publisher: S00K OS Project
+Application: S00K_OS_Installer
+Architecture: x86_64, i386
+Boot Support: UEFI, BIOS (Legacy)
+Hybrid Support: Yes (USB/CD/DVD)
+
+Bootloader Information:
+- ISOLINUX: BIOS boot support with menu.c32
+- GRUB2: UEFI boot support with graphics
+- Fallback: Chainloading to existing OS
+- Timeout: 5 seconds
+- Default: S00K OS (Default)
+
+Hybrid ISO Features:
+- USB boot via isohybrid
+- CD/DVD boot with El Torito
+- Virtual machine compatibility
+- BIOS and UEFI support
+- Partition table for USB devices
+
+Verification Tools:
+- System verification script
+- Hardware detection tool
+- Memory testing (memtest86+)
+- Filesystem checking
+- Boot sector validation

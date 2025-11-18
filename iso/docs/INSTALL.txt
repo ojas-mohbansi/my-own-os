@@ -1,0 +1,39 @@
+S00K OS Installation Guide
+==========================
+
+System Requirements:
+- x86_64 or i386 processor
+- 512MB RAM minimum (1GB recommended)
+- 2GB available disk space
+- CD/DVD drive or USB port for boot media
+
+Boot Instructions:
+1. Insert S00K OS bootable media (CD/DVD/USB)
+2. Restart your computer
+3. Enter BIOS/UEFI setup (usually F2, F12, DEL, or ESC)
+4. Set boot priority to boot from your media
+5. Save and exit BIOS/UEFI
+6. Select boot option from S00K OS menu
+
+Boot Menu Options:
+- S00K OS (Default): Standard boot with all features
+- S00K OS (Safe Mode): Boot with minimal drivers
+- S00K OS (Rescue Mode): System recovery and repair
+- Memory Test: Test system RAM for errors
+- Hardware Detection: Identify system components
+- System Verification: Validate system integrity
+
+Installation Process:
+1. Boot from S00K OS media
+2. Select installation option
+3. Follow on-screen prompts
+4. Configure system settings
+5. Complete installation
+
+Troubleshooting:
+- If boot fails, try Safe Mode
+- Check BIOS/UEFI settings for secure boot
+- Verify boot media integrity
+- Consult hardware compatibility list
+
+For detailed instructions, visit: https://s00k-os.org/install

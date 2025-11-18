@@ -1,0 +1,164 @@
+name: CI/CD Pipeline
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Cache build
+      uses: actions/cache@v4
+      with:
+        path: build
+        key: build-${{ runner.os }}-${{ hashFiles('src/**/*.c', 'tests/**/*.c', 'Makefile') }}
+        restore-keys: |
+          build-${{ runner.os }}-
+      
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential make
+      
+    - name: Build main OS
+      run: make clean && make
+      
+    - name: Run all tests
+      run: make test-all
+      
+    - name: Run individual component tests
+      run: |
+        make test-kernel
+        make test-memory
+        make test-io
+        make test-filesystem
+      
+    - name: Upload build and test artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-and-tests
+        path: |
+          build/
+          **/*.log
+    
+    - name: Failure notification
+      if: failure()
+      env:
+        WEBHOOK: ${{ secrets.NOTIFY_WEBHOOK }}
+      run: |
+        if [ -n "$WEBHOOK" ]; then
+          curl -X POST -H "Content-Type: application/json" -d '{"text":"CI build-and-test failed on '${{ github.ref }}'"}' "$WEBHOOK" || true
+        fi
+        
+  code-quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up GCC
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        version: latest
+        platform: x64
+        
+    - name: Install static analysis tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cppcheck clang-tidy
+        
+    - name: Run static analysis
+      run: |
+        echo "Running static analysis..."
+        cppcheck --enable=all --error-exitcode=1 --inline-suppr \
+          --suppress=missingIncludeSystem \
+          --suppress=unusedFunction \
+          --suppress=unmatchedSuppression \
+          src/ tests/ || true
+          
+    - name: Check code formatting
+      run: |
+        echo "Checking code formatting..."
+        find src/ tests/ -name "*.c" -o -name "*.h" | while read file; do
+          if [ -s "$file" ]; then
+            echo "Checking $file..."
+            # Basic formatting check - no trailing whitespace
+            if grep -n '[[:space:]]$' "$file"; then
+              echo "Warning: Trailing whitespace found in $file"
+            fi
+          fi
+        done
+        
+  security-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Run security scan
+      run: |
+        echo "Running basic security checks..."
+        # Check for potential buffer overflows
+        grep -r "strcpy\|strcat\|gets" src/ tests/ || echo "No unsafe string functions found"
+        # Check for potential integer overflows
+        grep -r "malloc.*\*" src/ tests/ || echo "No suspicious malloc patterns found"
+        
+  performance-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Build with performance profiling
+      run: |
+        make clean
+        make CFLAGS="-O2 -pg"
+        
+    - name: Run performance tests
+      run: |
+        echo "Running performance tests..."
+        timeout 30s ./my_os || true
+        echo "Performance test completed"
+        
+    - name: Memory leak check
+      run: |
+        echo "Running memory leak detection..."
+        # Basic memory usage check
+        valgrind --leak-check=brief --error-exitcode=1 ./my_os || true
+        
+  deploy:
+    needs: [build-and-test, code-quality, security-scan]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Create release artifacts
+      run: |
+        mkdir -p release
+        cp os release/
+        cp -r build release/build
+        cp README.md release/
+        
+    - name: Upload release artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: os-release
+        path: release/

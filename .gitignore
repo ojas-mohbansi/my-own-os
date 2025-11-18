@@ -1,0 +1,42 @@
+# Build directories
+build/
+bin/
+
+# Executables and binaries
+*.exe
+*.bin
+*.o
+*.obj
+*.class
+
+# Images and archives
+*.img
+*.iso
+*.zip
+*.tar
+*.gz
+
+# Logs and reports
+*.log
+*.tmp
+*.temp
+
+# Release artifacts
+release/
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Node.js caches
+node_modules/.cache/
+
+# System-specific files
+Thumbs.db
+Desktop.ini
+.DS_Store
+

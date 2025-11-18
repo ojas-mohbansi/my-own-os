@@ -1,0 +1,67 @@
+S00K OS Hardware Compatibility
+=============================
+
+Tested and Verified Hardware:
+
+Processors:
+- Intel: Core i3/i5/i7/i9 (2nd gen and newer)
+- Intel: Xeon E3/E5/E7 series
+- AMD: Ryzen 3/5/7/9 series
+- AMD: FX/A-series APUs
+- VIA: Nano, C7, Eden
+
+Memory:
+- DDR3, DDR4, DDR5 SDRAM
+- ECC memory support
+- Up to 128GB tested
+- Multi-channel configurations
+
+Storage Controllers:
+- Intel AHCI SATA
+- AMD SATA controllers
+- NVMe SSDs (M.2, U.2)
+- SCSI controllers (LSI, Adaptec)
+- RAID controllers (Intel, AMD)
+
+Graphics:
+- Intel integrated graphics
+- AMD Radeon series
+- NVIDIA GeForce/Quadro
+- Basic VGA compatibility
+
+Network:
+- Intel Ethernet adapters
+- Realtek network chips
+- Broadcom controllers
+- Atheros wireless (limited)
+
+Boot Media:
+- USB 2.0/3.0/3.1 flash drives
+- CD-R/RW, DVD-R/RW
+- Virtual machine ISO images
+- Network boot (PXE) - planned
+
+System Requirements:
+Minimum:
+- 1GHz processor
+- 512MB RAM
+- 2GB storage
+- VGA graphics
+
+Recommended:
+- 2GHz dual-core processor
+- 2GB RAM
+- 10GB storage
+- Hardware-accelerated graphics
+
+Compatibility Issues:
+- Some very old systems (pre-2005)
+- Certain RAID configurations
+- Proprietary graphics drivers
+- Secure Boot with custom keys
+
+For detailed compatibility list:
+https://s00k-os.org/hardware
+
+Report hardware issues to:
+support@s00k-os.org

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1f2937"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1024" height="1024" fill="url(#g2)" rx="128"/>
+  <circle cx="512" cy="512" r="360" fill="none" stroke="url(#g1)" stroke-width="32"/>
+  <circle cx="512" cy="512" r="260" fill="none" stroke="#94a3b8" stroke-width="8" opacity="0.6"/>
+  <g transform="translate(512,512)">
+    <text x="0" y="40" font-family="Segoe UI, Roboto, Arial" font-size="160" fill="#e5e7eb" text-anchor="middle" font-weight="700">S00K</text>
+    <text x="0" y="200" font-family="Segoe UI, Roboto, Arial" font-size="72" fill="#a5b4fc" text-anchor="middle" font-weight="600">OPERATING SYSTEM</text>
+  </g>
+  <g transform="translate(512,512)">
+    <path d="M-220,-220 L-160,-180" stroke="#0ea5e9" stroke-width="12" stroke-linecap="round"/>
+    <path d="M220,-220 L180,-160" stroke="#7c3aed" stroke-width="12" stroke-linecap="round"/>
+    <path d="M-220,220 L-160,180" stroke="#7c3aed" stroke-width="12" stroke-linecap="round"/>
+    <path d="M220,220 L160,180" stroke="#0ea5e9" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>

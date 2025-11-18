@@ -1,0 +1,44 @@
+S00K OS Release Notes
+====================
+
+Version: 1.0
+Release Date: 2025-11-18
+Codename: "Quantum Leap"
+
+New Features:
+- Dual bootloader support (UEFI/BIOS)
+- Hybrid ISO structure (USB/CD/DVD)
+- Comprehensive verification tools
+- Hardware detection capabilities
+- Memory testing utilities
+- System recovery options
+
+Bootloader Improvements:
+- GRUB2 for UEFI systems
+- ISOLINUX for BIOS systems
+- Fallback chainloading
+- 5-second boot timeout
+- Multiple boot options
+
+System Requirements:
+- Updated processor support
+- Enhanced memory management
+- Improved hardware compatibility
+
+Known Issues:
+- Some older systems may require BIOS update
+- Secure boot may need to be disabled
+- USB 3.0 ports recommended for faster boot
+
+Fixed Issues:
+- Boot sector validation
+- Memory detection on legacy systems
+- Hardware compatibility improvements
+
+Future Roadmap:
+- ARM64 architecture support
+- Network boot capabilities
+- Advanced recovery tools
+- Automated hardware detection
+
+For full changelog, visit: https://s00k-os.org/releases
