@@ -1,6 +1,6 @@
 # S00K OS
 
-![CI/CD](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)
+![CI/CD](https://github.com/ojas-mohbansi/my-own-os/actions/workflows/ci.yml/badge.svg)
 
 A lightweight, educational operating system built from scratch featuring a monolithic kernel architecture with comprehensive security, memory management, and file system capabilities.
 
